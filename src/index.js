@@ -23,13 +23,24 @@ const presidentsArray = ['George Washington', 'John Adams', 'Thomas Jefferson', 
     <li>John Quincy Adams</li>
   </ol>
 
+  const renderUnnumericList = () => {
+    const presidentsArray = ['Andrew Jackson', 'Martin Van Buren', 'William Henry Harrison'];
+
+    return (
+      <ul>
+        {presidentsArray.map((president)=> (
+          <li key={president}>{president}</li>
+        ))}
+      </ul>
+    )
+  }
+
 ReactDOM.render([
   listUI,
-  listUInumeric
+  listUInumeric,
+  renderUnnumericList(),
 ],
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>,
+
   document.getElementById('root')
 );
 
