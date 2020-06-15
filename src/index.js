@@ -17,8 +17,16 @@ const presidentsArray = ['George Washington', 'John Adams', 'Thomas Jefferson', 
     <li>Thomas Jefferson</li>
   </ul>
 
-ReactDOM.render(
+  const listUInumeric = <ol start="4">
+    <li>James Madison</li>
+    <li>James Monroe</li>
+    <li>John Quincy Adams</li>
+  </ol>
+
+ReactDOM.render([
   listUI,
+  listUInumeric
+],
   // <React.StrictMode>
   //   <App />
   // </React.StrictMode>,
