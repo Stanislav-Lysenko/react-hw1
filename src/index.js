@@ -11,23 +11,25 @@ const presidentsArray = ['George Washington', 'John Adams', 'Thomas Jefferson', 
 'Millard Fillmore', 'Franklin Pierce', 'James Buchanan'
 ];
 
-  const listUI = <ul>
+  const listUI = <ul key="1">
     <li>George Washington</li>
     <li>John Adams</li>
     <li>Thomas Jefferson</li>
   </ul>
 
-  const listUInumeric = <ol start="4">
+  const listUInumeric = <ol key="2" start="4">
     <li>James Madison</li>
     <li>James Monroe</li>
     <li>John Quincy Adams</li>
   </ol>
 
   const renderUnnumericList = () => {
-    const presidentsArray = ['Andrew Jackson', 'Martin Van Buren', 'William Henry Harrison'];
+    const presidentsArray = [
+      'Andrew Jackson', 'Martin Van Buren', 'William Henry Harrison'
+    ];
 
     return (
-      <ul>
+      <ul key="4">
         {presidentsArray.map((president)=> (
           <li key={president}>{president}</li>
         ))}
