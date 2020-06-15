@@ -1,13 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+// eslint-disable-next-line
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// eslint-disable-next-line
+const presidentsArray = ['George Washington', 'John Adams', 'Thomas Jefferson', 'James Madison', 'James Monroe',
+'John Quincy Adams', 'Andrew Jackson', 'Martin Van Buren', 'William Henry Harrison', 'John Tyler', 'James K. Polk', 'Zachary Taylor',
+'Millard Fillmore', 'Franklin Pierce', 'James Buchanan'
+];
+
+  const listUI = <ul>
+    <li>George Washington</li>
+    <li>John Adams</li>
+    <li>Thomas Jefferson</li>
+  </ul>
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  listUI,
+  // <React.StrictMode>
+  //   <App />
+  // </React.StrictMode>,
   document.getElementById('root')
 );
 
