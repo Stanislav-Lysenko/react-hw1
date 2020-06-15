@@ -37,10 +37,32 @@ const presidentsArray = ['George Washington', 'John Adams', 'Thomas Jefferson', 
     )
   }
 
+  const renderOddList = () => {
+    const fullName = (president) => {
+      return `${president.firstName} ${president.lastName}`
+    }
+
+    const presidentsArray = [
+      {firstName: 'John', lastName: 'Tyler', presidentIndex: 10},
+      {firstName: 'James', lastName: 'Polk', presidentIndex: 11},
+      {firstName: 'Millard', lastName: 'Taylor', presidentIndex: 12},
+      {firstName: 'Zachary', lastName: 'Fillmore', presidentIndex: 13},
+    ];
+
+    return (
+      <ul key='5'>
+        {presidentsArray.filter((president) => president.presidentIndex % 2 !== 0)
+          .map(president => <li key={president.presidentIndex}>{fullName(president)}</li>
+        )}
+      </ul>
+    )
+  }
+
 ReactDOM.render([
   listUI,
   listUInumeric,
   renderUnnumericList(),
+  renderOddList(),
 ],
 
   document.getElementById('root')
