@@ -24,6 +24,13 @@ const presidentsArray = ['George Washington', 'John Adams', 'Thomas Jefferson', 
   </ol>
 
   const renderUnnumericList = () => {
+    const styles = {
+      backgroundColor: '#ddd',
+      paddingTop: '1em',
+      paddingBottom: '1em',
+      fontWeight: 'bold',
+    }
+
     const presidentsArray = [
       'Andrew Jackson', 'Martin Van Buren', 'William Henry Harrison'
     ];
@@ -31,7 +38,7 @@ const presidentsArray = ['George Washington', 'John Adams', 'Thomas Jefferson', 
     return (
       <ul key="4">
         {presidentsArray.map((president)=> (
-          <li key={president}>{president}</li>
+          <li key={president} style={styles}>{president}</li>
         ))}
       </ul>
     )
@@ -57,6 +64,8 @@ const presidentsArray = ['George Washington', 'John Adams', 'Thomas Jefferson', 
       </ul>
     )
   }
+
+
 
 ReactDOM.render([
   listUI,
