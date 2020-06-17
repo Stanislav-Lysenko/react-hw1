@@ -65,6 +65,27 @@ const presidentsArray = ['George Washington', 'John Adams', 'Thomas Jefferson', 
     )
   }
 
+  const eventsList = () => {
+    let events = [];
+    const getData = () => {
+      fetch('/')
+        .then(res => res.json())
+        .then(data => { events = data})
+        .then(data => console.log(data))
+        .catch(err => err)
+    }
+
+    ( async() => { await getData()})();
+
+    return (
+      <ul>
+        {events.forEach(item => (
+          <li key={item.id}>{item.title}</li>
+        ))}
+      </ul>
+    )
+  }
+
 
 
 ReactDOM.render([
@@ -72,6 +93,7 @@ ReactDOM.render([
   listUInumeric,
   renderUnnumericList(),
   renderOddList(),
+  eventsList(),
 ],
 
   document.getElementById('root')
