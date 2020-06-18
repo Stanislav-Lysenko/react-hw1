@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { fetchData } from './fetchData';
 import './index.css';
 // eslint-disable-next-line
 import App from './App';
@@ -66,22 +67,18 @@ const presidentsArray = ['George Washington', 'John Adams', 'Thomas Jefferson', 
   }
 
   const eventsList = () => {
-    let events = [];
-    const getData = () => {
-      fetch('/')
-        .then(res => res.json())
-        .then(data => { events = data})
-        .then(data => console.log(data))
-        .catch(err => err)
+    const events = fetchData();
+    const eventsParsed = JSON.parse(events);
+
+    const sortByDate = (eventA, eventB) => {
+      return Date.parse(eventA.date) - Date.parse(eventB.date);
     }
-
-    ( async() => { await getData()})();
-
+//<li key={event.id}>{event.date}</li>
     return (
-      <ul>
-        {events.forEach(item => (
-          <li key={item.id}>{item.title}</li>
-        ))}
+      <ul key='6'>
+        {eventsParsed.sort(sortByDate)
+          .forEach((event) => (<li key={event.id}>{event.date}</li>)
+          )}
       </ul>
     )
   }

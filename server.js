@@ -8,11 +8,13 @@ const app = express();
 const PATH_TO_DATA = path.join(__dirname, './data/data.json');
 
 const getData = () => {
+  console.log('here');
   if (fs.existsSync(PATH_TO_DATA)) {
     fs.readFile(PATH_TO_DATA, 'utf-8', (err, content) => {
       if (err) {
         throw err;
       }
+      console.log(content);
       return content;
     })
   }
