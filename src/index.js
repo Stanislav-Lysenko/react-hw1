@@ -1,16 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { fetchData } from './fetchData';
+import Moment from 'moment';
 import './index.css';
 // eslint-disable-next-line
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
-// eslint-disable-next-line
-const presidentsArray = ['George Washington', 'John Adams', 'Thomas Jefferson', 'James Madison', 'James Monroe',
-'John Quincy Adams', 'Andrew Jackson', 'Martin Van Buren', 'William Henry Harrison', 'John Tyler', 'James K. Polk', 'Zachary Taylor',
-'Millard Fillmore', 'Franklin Pierce', 'James Buchanan'
-];
 
   const listUI = <ul key="1">
     <li>George Washington</li>
@@ -73,11 +68,30 @@ const presidentsArray = ['George Washington', 'John Adams', 'Thomas Jefferson', 
     const sortByDate = (eventA, eventB) => {
       return Date.parse(eventA.date) - Date.parse(eventB.date);
     }
-//<li key={event.id}>{event.date}</li>
+
+    const getDayPeriod = (hours) => {
+      if (hours >= 5 && hours < 11 ) {
+        return 'Утро';
+      }
+      if (hours >= 11 && hours < 17 ) {
+        return 'День';
+      }
+      if (hours >= 17 && hours < 21 ) {
+        return 'Вечер';
+      } else {
+        return 'Ночь';
+      }
+    }
     return (
       <ul key='6'>
         {eventsParsed.sort(sortByDate)
-          .forEach((event) => (<li key={event.id}>{event.date}</li>)
+          .map((event) => (
+            //{Date.parse(event.date) < new Date? <li key={event.id} style='color: gray'> : <li key={event.id}>}
+            <li key={event.id}>
+              <p><a href={'https://www.facebook.com/events/' + event.id} rel="noopener noreferrer" target="_blank">{event.title}</a></p>
+              <p>{getDayPeriod((new Date(Date.parse(event.date))).getHours())}, {Moment(event.date).format('L , hh:mm:ss')}</p>
+              <p>{event.place}</p>
+            </li>)
           )}
       </ul>
     )
