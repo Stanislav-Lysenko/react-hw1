@@ -97,6 +97,20 @@ import * as serviceWorker from './serviceWorker';
     )
   }
 
+  const formUI = () => {
+
+    return (
+      <form key='7' action='https://postman-echo.com/post' method='POST'>
+        <div><label for='name'>Name<input id='name' type='text' required/></label></div>
+        <div><label for='password'>Password<input id='password' type='password' required/></label></div>
+        <div><label for='plan'>Base tariff<input id='base' type='radio' name='tariff'/></label></div>
+        <div><label for='plan'>Premium tariff<input id='premium' type='radio' name='tariff' checked/></label></div>
+        <div><label for='newsletter'>Send me news on email<input id='newsletter' type='checkbox'/></label></div>
+        <div><button type='submit'>Buy</button></div>
+      </form>
+    )
+  }
+
 
 
 ReactDOM.render([
@@ -105,6 +119,7 @@ ReactDOM.render([
   renderUnnumericList(),
   renderOddList(),
   eventsList(),
+  formUI(),
 ],
 
   document.getElementById('root')
