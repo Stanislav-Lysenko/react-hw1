@@ -82,12 +82,13 @@ import * as serviceWorker from './serviceWorker';
         return 'Ночь';
       }
     }
+
+    // <li key={event.id}>
     return (
       <ul key='6'>
         {eventsParsed.sort(sortByDate)
           .map((event) => (
-            //{Date.parse(event.date) < new Date? <li key={event.id} style='color: gray'> : <li key={event.id}>}
-            <li key={event.id}>
+              <li key={event.id} style={Date.parse(event.date) < new Date() ? {opacity: 0.5} : null}>
               <p><a href={'https://www.facebook.com/events/' + event.id} rel="noopener noreferrer" target="_blank">{event.title}</a></p>
               <p>{getDayPeriod((new Date(Date.parse(event.date))).getHours())}, {Moment(event.date).format('L , hh:mm:ss')}</p>
               <p>{event.place}</p>
